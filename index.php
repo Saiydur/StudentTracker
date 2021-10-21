@@ -93,7 +93,7 @@
                     obcaecati?</p>
                 <hr class="my-2">
                 <p class="lead">
-                    <a class="btn btn-info btn-lg" href="Registration.php" role="button">Use Now</a>
+                    <a class="btn btn-info btn-lg" href="./View/Registration.php" role="button">Use Now</a>
                 </p>
             </div>
         </div>
