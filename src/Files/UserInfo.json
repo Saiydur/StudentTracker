@@ -1,0 +1,18 @@
+[
+    {
+        "firstName": "Sayidur",
+        "lastName": "Rahman",
+        "fullName": "Sayidur Rahman",
+        "contactNo": "1999896668",
+        "email": "localuser@gmail.com",
+        "password": "AMIlihanas@19"
+    },
+    {
+        "firstName": "Rafidur",
+        "lastName": "Rahman",
+        "fullName": "Rafidur Rahman",
+        "contactNo": "1999896668",
+        "email": "rafidur121@gmail.com",
+        "password": "Rafid@12345"
+    }
+]

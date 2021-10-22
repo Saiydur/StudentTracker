@@ -35,16 +35,21 @@
                             </div>
                         </div>
 
-                        <form action="../Controller/LoginAction.php" method="post">
+                        <form action="" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="text" name="email" class="form-control" id="email"
-                                    aria-describedby="emailHelp" placeholder="Enter email" value="">
+                                    aria-describedby="emailHelp" placeholder="Enter email" value=""><br>
+                                <?php echo"<label class='text-danger'>{$emailErr}</label>";?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="password" name="password" id="password" class="form-control"
-                                    aria-describedby="emailHelp" placeholder="Enter Password" value="">
+                                    aria-describedby="emailHelp" placeholder="Enter Password" value=""><br>
+                                <?php echo"<label class='text-danger'>{$passwordErr}</label>";?>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p class="text-danger"><?php if($userResult!="True"){echo $userResult;}?></p>
                             </div>
                             <div class="form-group">
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
