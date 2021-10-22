@@ -13,22 +13,38 @@
 
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Upload-Notes</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Upload Notes & Files</title>
 </head>
 <body>
-<?php include('../Global/Header.php');
-include('../Global/UserHeader.php');
-?>
-        <div class="col-md-9 col-lg-10 pl-0 pr-0">
-            <div class="jumbotron jumbotron-fluid bg-light mb-0">
-                <div class="container">
-                <h1>This is Upload Notes</h1>
-                   <!--  Write Your Code From Here -->
+<?php include('../Global/Header.php'); ?>
+
+        <div class="bg-light">
+            <?php include('../Global/UserHeader.php'); ?>
+            <div class="col-md-9 col-lg-10 pl-0 pr-0">
+                <div class="jumbotron jumbotron-fluid bg-light mb-0">
+                    <div class="container">
+                        <div class="container">
+                            <h1>Upload Notes and Files from One Place</h1>
+                            <!--  Write Your Code From Here -->
+                            <div class="form-group mb-3 note-file-title-div">
+                                    <input type="text" class="form-control note-file-title-input" placeholder="Note/File Title" aria-label="Note/File Title" aria-describedby="basic-addon2">
+                            </div>
+
+                            <div class="form-group note-file-notes-div">
+                                <textarea class="form-control note-file-notes-input" id="exampleFormControlTextarea1" rows="3" placeholder="Take Notes..."></textarea>
+                            </div>
+
+                            <div class="form-group note-file-files-div">
+                                <label for="exampleFormControlFile1">Upload Files</label>
+                                <input type="file" class="form-control-file note-file-files-input" id="exampleFormControlFile1">
+                            </div>
+
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 </body>
 </html>

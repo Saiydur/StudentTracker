@@ -14,5 +14,13 @@
         "contactNo": "1999896668",
         "email": "rafidur121@gmail.com",
         "password": "Rafid@12345"
+    },
+    {
+        "firstName": "Safkat",
+        "lastName": "Jaman",
+        "fullName": "Safkat Jaman",
+        "contactNo": "1927816773",
+        "email": "safkatjamansiam20162@gmail.com",
+        "password": "Safkat@123"
     }
 ]
