@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
     $_SESSION['name']=$name;
     $_SESSION['id']=rand(0,6);
     if(!empty($_SESSION['id'])){
-    header('location:../View/blogs.php');
+    header('location:../View/todolist.php');
     }
 }
 else{

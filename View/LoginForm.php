@@ -9,6 +9,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!------ Include the above in your HEAD tag ---------->
 
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
@@ -37,7 +38,7 @@
                         <form action="../Controller/LoginAction.php" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" name="email" class="form-control" id="email"
+                                <input type="text" name="email" class="form-control" id="email"
                                     aria-describedby="emailHelp" placeholder="Enter email" value="">
                             </div>
                             <div class="form-group">
@@ -89,6 +90,9 @@
                     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                     crossorigin="anonymous">
                 </script>
+            </div>
+        </div>
+    </div>
                 
 </body>
 
