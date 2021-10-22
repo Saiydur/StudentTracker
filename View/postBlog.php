@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
@@ -23,8 +24,41 @@
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
-                <h1>This is Post Blog</h1>
-                   <!--  Write Your Code From Here -->
+                <h1>Share Your Mind:</h1><hr>
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Title</h3>
+                            <input class="form-control" type="text" name="postTitle" id="postTitle" placeholder="Enter Your Blog Title"><br>
+                            <label for="">Error Here</label>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Categorey</h3>
+                            <input class="form-control" type="text" name="postTitle" id="postCategorey" placeholder="Enter categorey here use (,) for multiple categorey"><br>
+                            <label for="">Error Here</label>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Write Your Blog:</h3><br>
+                            <label for="">Error Here</label>
+                            <textarea name="blogText" id=""></textarea>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Tags</h3><br>
+                            <label for="">Error Here</label>
+                            <input class="form-control" type="text" name="postTags" id="postTitle" placeholder="Enter tags here use (,) for multiple tags">
+                        </div>
+                    </div><br>
+                    <button class="btn btn-primary w-100" type="submit" name="postBlog">Post</button>
+                </form>
+                <script>
+                    CKEDITOR.replace('blogText');
+                </script>
                 </div>
             </div>
         </div>
