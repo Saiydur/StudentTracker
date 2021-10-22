@@ -1,4 +1,5 @@
 <?php
+include('../Model/UserRegistration.php');
 //global variable for future use
 $firstName="";
 $lastName="";
@@ -109,6 +110,12 @@ if(isset($_POST['register'])){
 
     if($flag!=0)
     {
-        $result="Validation Done";
+        $user = new UserInfo($firstName,$lastName,$email,$contactNo,$password);
+        if($user->InsertDataToJSON()){
+            $result = "Data Inserted Successfully";
+        }
+        else{
+            $result = "Data Insertion Failed";
+        }
     }
 }
