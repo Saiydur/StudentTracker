@@ -119,10 +119,10 @@
                             <i class="fas fa-gem me-3"></i>Alpha Alliance
                         </h6>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Fugiat placeat commodi eveniet facilis repudiandae veritatis, 
-                            qui iure sed in voluptas maxime odio, distinctio illum harum? Rem quis, id tempore 
-                            blanditiis beatae ex est repudiandae. Praesentium nobis aliquid nisi maiores maxime!
+                            Saiydur Rahman <br>
+                            Abdullah Al Jaber <br>
+                            Rafidur Rahman <br>
+                            Safkat Jaman
                         </p>
                     </div>
                     <!-- Grid column -->
