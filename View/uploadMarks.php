@@ -17,6 +17,7 @@
     <title>Track Marks</title>
 </head>
 <body>
+<<<<<<< HEAD
 <?php include('../Global/Header.php');
 ?>
         <div class="bg-light">
@@ -47,5 +48,19 @@
             </div>
         </div>
         <script src='../script/uploadMarks.js'></script>
+=======
+<?php include('../Global/Header.php');?>
+    <div class="bg-light">
+        <?php include('../Global/UserHeader.php')?>
+        <div class="col-md-9 col-lg-10 pl-0 pr-0">
+            <div class="jumbotron jumbotron-fluid bg-light mb-0">
+                <div class="container">
+                <h1>This is Upload Mark</h1>
+                   <!--  Write Your Code From Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> 0ae4421ec2cf9b2658988c80fa1b4731bb21abbe
 </body>
 </html>
