@@ -17,9 +17,9 @@
     <title>Upload-Notes</title>
 </head>
 <body>
-<?php include('../Global/Header.php');
-include('../Global/UserHeader.php');
-?>
+<?php include('../Global/Header.php');?>
+    <div class="bg-light">
+        <?php include('../Global/UserHeader.php')?>
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
@@ -28,7 +28,6 @@ include('../Global/UserHeader.php');
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>    
 </body>
 </html>
