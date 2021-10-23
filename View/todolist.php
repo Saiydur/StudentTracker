@@ -23,8 +23,9 @@
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
-                    <h1>This is Todo List</h1>
-                   <!--  Write Your Code From Here -->
+                    <h1>Enter Your Task:</h1>
+                    <input class="form-control" type="text" name="list[]" id="ToDo" placeholder="Enter Your Task Here">
+                    <button class="btn btn-primary mt-2 w-100">Add</button>
                 </div>
             </div>
         </div>
