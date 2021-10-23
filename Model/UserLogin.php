@@ -20,6 +20,7 @@ class User{
                 if($data['email']==$this->email){
                     if($data["password"]==$this->password){
                         $result="True";
+                        break;
                     }
                     else{
                         $result="Incorrect Password";
