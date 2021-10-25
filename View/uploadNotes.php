@@ -15,6 +15,8 @@
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Upload Notes & Files</title>
+
+    <link rel="stylesheet" href="../src/CSS/uploadNotes.css">
 </head>
 <body>
 <?php include('../Global/Header.php'); ?>
@@ -27,20 +29,37 @@
                         <div class="container">
                             <h1>Upload Notes and Files from One Place</h1>
                             <!--  Write Your Code From Here -->
-                            <div class="form-group mb-3 note-file-title-div">
-                                    <input type="text" class="form-control note-file-title-input" placeholder="Note/File Title" aria-label="Note/File Title" aria-describedby="basic-addon2">
-                            </div>
+                            <form action="" method="post">
+                                <?php 
+                                    if(isset($error)) {
+                                        echo $error;
+                                    }
+                                ?>
+                                <div class="form-group mb-3 note-file-title-div">
+                                        <input type="text" class="form-control note-file-title-input" placeholder="Note/File Title" aria-label="Note/File Title" aria-describedby="basic-addon2" name='title'>
+                                </div>
 
-                            <div class="form-group note-file-notes-div">
-                                <textarea class="form-control note-file-notes-input" id="exampleFormControlTextarea1" rows="3" placeholder="Take Notes..."></textarea>
-                            </div>
+                                <div class="form-group note-file-notes-div">
+                                    <textarea class="form-control note-file-notes-input" id="exampleFormControlTextarea1" rows="3" placeholder="Take Notes..." name='textarea'></textarea>
+                                </div>
 
-                            <div class="form-group note-file-files-div">
-                                <label for="exampleFormControlFile1">Upload Files</label>
-                                <input type="file" class="form-control-file note-file-files-input" id="exampleFormControlFile1">
-                            </div>
+                                <div class="form-group note-file-files-div">
+                                    <form action="uploadNotes.php" method="POST" enctype="multipart/form-data">
+                                        <input type="file" class="form-control-file note-file-files-input" id="exampleFormControlFile" name='file'><br>
+                                        <button class="btn btn-outline-primary" type="submit" name='upload'>Upload</button>
+                                    </form>
+                                </div>
 
-                            
+                                <?php 
+                                    if(isset($message)) {
+                                        echo $message;
+                                    }
+                                ?>
+
+                                <div class="input-group-append" id="upload-notes-submit">
+                                    <button class="btn btn-outline-danger" type="submit" name='submit' value="Append">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
