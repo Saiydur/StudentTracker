@@ -47,6 +47,6 @@
                 </div>
             </div>
         </div>
-        <script src='../script/uploadMarks.js'></script>
+        <script src='../src/script/uploadMarks.js'></script>
 </body>
 </html>

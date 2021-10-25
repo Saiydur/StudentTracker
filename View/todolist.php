@@ -23,8 +23,28 @@
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
-                    <h1>This is Todo List</h1>
-                   <!--  Write Your Code From Here -->
+                <form action="" method="post">
+                    <h1>Enter Your task</h1>
+<input name="list[]" type="text" /><br>
+<input name="list[]" type="text" /><br>
+<input name="list[]" type="text" /><br>
+<input name="list[]" type="text" /><br>
+<input name="list[]" type="text" /><br>
+<input type="submit" value="Add" name="Add">
+</form>
+<?php
+       if(isset($_POST['Add'])){
+           echo"Your task are \n";
+        if(!empty($_POST['list'])){
+            foreach($_POST['list'] as $list){
+                echo$list."<br>";
+            }
+        }
+        else{
+            echo"no list selected";
+        }
+    }
+?>
                 </div>
             </div>
         </div>
