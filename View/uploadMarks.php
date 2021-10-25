@@ -15,11 +15,12 @@
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Track Marks</title>
+    <link rel="stylesheet" href="../src/CSS/marks.css">
 </head>
 <body>
 <?php include('../Global/Header.php');
 ?>
-        <div class="bg-light">
+        <div class="bg-light" id="container">
             <?php include('../Global/UserHeader.php'); ?>
             <div class="col-md-9 col-lg-10 pl-0 pr-0">
                 <div class="jumbotron jumbotron-fluid bg-light mb-0">
@@ -37,7 +38,7 @@
                         <div class="input-group form-group mb-3 marks-course-number-div">
                             <input type="number" class="form-control" id="marks-course-number-input" placeholder="How much courses did you take? (Enter a Number)" aria-label="Course Number" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-info" type="button" id='submit-course-number' onclick="courseNameCGPA()" >Submit</button>
+                                <button class="btn btn-outline-info" type="button" id='submit-course-number' onclick="courseNameCGPA()">Submit</button>
                             </div>
                         </div>
 

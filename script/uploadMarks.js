@@ -1,5 +1,3 @@
-
-
 function courseNameCGPA() {
       let inputNumber = document.getElementById('marks-course-number-input').value;
 
@@ -9,12 +7,16 @@ function courseNameCGPA() {
       }   
             else {
                   for (let i = 0; i < inputNumber; i++) {
+                        var wholeForm = document.createElement('div');
+                        wholeForm.setAttribute('id', 'marks-css');
+
                         var form = document.createElement('form');
                         form.setAttribute('method', 'post');
-                        form.setAttribute('class', 'needs-validation')
+                        form.setAttribute('class', 'needs-validation');
                         
                         var formRowDiv = document.createElement('div');
                         formRowDiv.setAttribute('class', 'form-row');
+                        formRowDiv.setAttribute('id', 'form-row-div');
       
                         var courseNameDiv = document.createElement('div');
                         courseNameDiv.setAttribute('class', 'col-md-4');
@@ -28,7 +30,6 @@ function courseNameCGPA() {
                         courseNameInput.setAttribute('id', 'validationCustom01');
                         courseNameInput.setAttribute('name', 'Course Name');
                         courseNameInput.setAttribute('placeholder', 'Enter Course Name');
-                        courseNameInput.setAttribute('value', inputNumber);
                         courseNameInput.required = true;
       
                         var cgpaDiv = document.createElement('div');
@@ -43,7 +44,6 @@ function courseNameCGPA() {
                         cgpaInput.setAttribute('id', 'validationCustom02');
                         cgpaInput.setAttribute('name', 'CGPA');
                         cgpaInput.setAttribute('placeholder', 'Enter CGPA');
-                        cgpaInput.setAttribute('value', 'Otto');
                         cgpaInput.required = true;
       
       
@@ -58,9 +58,10 @@ function courseNameCGPA() {
       
       
                         form.appendChild(formRowDiv);
+
+                        wholeForm.appendChild(form)
       
-      
-                        document.getElementsByTagName("body")[0].appendChild(form);
+                        document.getElementById('container').appendChild(wholeForm);
                         
             }
       }
