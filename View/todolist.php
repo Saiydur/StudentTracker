@@ -25,19 +25,19 @@
                 <div class="container">
                 <form action="" method="post">
                     <h1>Enter Your task</h1>
-<input name="list[]" type="text" /><br>
-<input name="list[]" type="text" /><br>
-<input name="list[]" type="text" /><br>
-<input name="list[]" type="text" /><br>
-<input name="list[]" type="text" /><br>
-<input type="submit" value="Add" name="Add">
+<input class="form-control" name="list[]" type="text" placeholder="Write Your Tasks" /><br>
+<input class="form-control" name="list[]" type="text" placeholder="Write Your Tasks" /><br>
+<input class="form-control" name="list[]" type="text" placeholder="Write Your Tasks" /><br>
+<input class="form-control" name="list[]" type="text" placeholder="Write Your Tasks" /><br>
+<input class="form-control" name="list[]" type="text" placeholder="Write Your Tasks" /><br>
+<input class="btn btn-danger w-100 p-4 mb-4" type="submit" value="Add" name="Add">
 </form>
 <?php
        if(isset($_POST['Add'])){
-           echo"Your task are \n";
+           echo"<h1>Your task are</h1> \n";
         if(!empty($_POST['list'])){
             foreach($_POST['list'] as $list){
-                echo$list."<br>";
+                echo"<h6>".$list."</h6><br>";
             }
         }
         else{
