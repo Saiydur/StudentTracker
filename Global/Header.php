@@ -20,7 +20,9 @@
                 </ul>
                 <div class="mx-4">
                 <?php session_start(); if(!empty($_SESSION['email'])){
+                    echo '<a class="btn btn-outline-info my-2 my-sm-0 mr-2 " href="../View/todolist.php">To Do List</a>';
                         echo '<a class="btn btn-outline-info my-2 my-sm-0 " href="../Controller/LogOut.php">Logout</a>';
+
                     }
                     else{
                         echo '<a class="btn btn-outline-info my-2 my-sm-0 mx-2" href="../View/LoginForm.php">Login</a>';
