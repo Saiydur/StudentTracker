@@ -21,36 +21,38 @@
 <?php include('../Global/Header.php');?>
     <div class="bg-light">
         <?php include('../Global/UserHeader.php')?>
+        <?php include('../Controller/PostBlogAction.php')?>
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
                 <h1>Share Your Mind:</h1><hr>
+                <h3><?php echo $result?></h3>
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Title</h3>
                             <input class="form-control" type="text" name="postTitle" id="postTitle" placeholder="Enter Your Blog Title"><br>
-                            <label for="">Error Here</label>
+                            <label class="text-danger"for=""><?php echo $postTitleErr?></label>
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Categorey</h3>
-                            <input class="form-control" type="text" name="postTitle" id="postCategorey" placeholder="Enter categorey here use (,) for multiple categorey"><br>
-                            <label for="">Error Here</label>
+                            <input class="form-control" type="text" name="postCat" id="postCategorey" placeholder="Enter categorey here use (,) for multiple categorey"><br>
+                            <label class="text-danger" for=""><?php echo $postCatErr?></label>
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Write Your Blog:</h3><br>
-                            <label for="">Error Here</label>
+                            <label class="text-danger"for=""><?php echo $blogTextErr?></label>
                             <textarea name="blogText" id=""></textarea>
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Tags</h3><br>
-                            <label for="">Error Here</label>
+                            <label class="text-danger"for=""><?php echo $postTagsErr?></label>
                             <input class="form-control" type="text" name="postTags" id="postTitle" placeholder="Enter tags here use (,) for multiple tags">
                         </div>
                     </div><br>

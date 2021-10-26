@@ -19,9 +19,10 @@
     <?php include('../Global/Header.php')?>
     <!-- Heading Section End Here -->
     <h1 class="container py-4"><?php
-    if(isset($_SESSION['name'])){
-    $name=explode('@',$_SESSION['name']);
-    echo $name[0]." Thank You For Testing";
+    if(isset($_SESSION['email'])){
+    $name=explode('@',$_SESSION['email']);
+    echo $name[0]." Thank You For Testing\n";
+    echo "This is blog";
     }
     else{
         echo "No Data Found";
