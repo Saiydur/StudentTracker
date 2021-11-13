@@ -29,7 +29,7 @@
                         <div class="container">
                             <h1>Upload Notes and Files from One Place</h1>
                             <!--  Write Your Code From Here -->
-                            <form action="" method="post">
+                            <!-- <form action="" method="post"> -->
                                 <?php 
                                     if(isset($error)) {
                                         echo $error;
@@ -44,9 +44,9 @@
                                 </div>
 
                                 <div class="form-group note-file-files-div">
-                                    <form action="uploadNotes.php" method="POST" enctype="multipart/form-data">
+                                    <form action="uploadFile.php" method="POST" enctype="multipart/form-data">
                                         <input type="file" class="form-control-file note-file-files-input" id="exampleFormControlFile" name='file'><br>
-                                        <button class="btn btn-outline-primary" type="submit" name='upload'>Upload</button>
+                                        <button class="btn btn-outline-primary" type="submit" name='submit'>Upload</button>
                                     </form>
                                 </div>
 
@@ -56,10 +56,7 @@
                                     }
                                 ?>
 
-                                <div class="input-group-append" id="upload-notes-submit">
-                                    <button class="btn btn-outline-danger" type="submit" name='submit' value="Append">Submit</button>
-                                </div>
-                            </form>
+                            <!-- </form> -->
                         </div>
                     </div>
                 </div>

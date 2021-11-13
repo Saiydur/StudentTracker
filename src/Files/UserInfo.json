@@ -134,5 +134,29 @@
         "contactNo": "1111111111",
         "email": "rafidur121@gmail.com",
         "password": "Rafid@12345"
+    },
+    {
+        "firstName": "Abdullah",
+        "lastName": "Jaber",
+        "fullName": "Abdullah Jaber",
+        "contactNo": "1999896668",
+        "email": "localuser@gmail.com",
+        "password": "AMIlihanas@19"
+    },
+    {
+        "firstName": "Abdullah",
+        "lastName": "Jaber",
+        "fullName": "Abdullah Jaber",
+        "contactNo": "1999896668",
+        "email": "localuser@gmail.com",
+        "password": "AMIlihanas@19"
+    },
+    {
+        "firstName": "Sayidur",
+        "lastName": "Rahman",
+        "fullName": "Sayidur Rahman",
+        "contactNo": "1999999999",
+        "email": "localuser@gmail.com",
+        "password": "AMIlihanas@19"
     }
 ]

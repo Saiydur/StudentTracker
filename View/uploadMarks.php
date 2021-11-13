@@ -40,9 +40,7 @@
                             <div class="input-group-append">
                                 <button class="btn btn-outline-info" type="button" id='submit-course-number' onclick="courseNameCGPA()">Submit</button>
                             </div>
-                        </div>
-
-                        
+                        </div>  
                     </div>
                 </div>
             </div>
