@@ -2,7 +2,7 @@
       color: chartreuse;
 }
 
-#form-row-div {
+#form-row-div, #submit-button {
       display: flex;
       justify-content: center;
 }
