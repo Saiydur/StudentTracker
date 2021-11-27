@@ -16,6 +16,17 @@
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <link rel="stylesheet" href="../src/CSS/Registration.css">
     <title>Registration</title>
+
+    <style>
+        .error{
+            background-color: red;
+            color: white;
+            opacity: 0.6;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar-->
@@ -28,11 +39,13 @@
             <img src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
             <h1>Create an Account</h1>
         </div>
-
         <!-- Registeration Form -->
         <?php include('../Controller/RegistrationAction.php');?>
         <div class="col-md-7 col-lg-6 ml-auto">
             <form action="" method="POST">
+                <div class="error">
+                    <p><?php if(!empty($result)){echo $result;}?></p>
+                </div>
                     <!-- First Name -->
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
@@ -134,7 +147,6 @@
                 </div>
             </form>
         </div>
-    <h1><?php echo $result?></h1>
     </div>
 </div>
 

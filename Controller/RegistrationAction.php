@@ -111,11 +111,6 @@ if(isset($_POST['register'])){
     if($flag!=0)
     {
         $user = new UserInfo($firstName,$lastName,$email,$contactNo,$password);
-        if($user->InsertDataToJSON()){
-            $result = "Data Inserted Successfully";
-        }
-        else{
-            $result = "Data Insertion Failed";
-        }
+        $result=$user->InsertDataToDB();
     }
 }
