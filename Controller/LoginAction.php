@@ -6,8 +6,9 @@ $emailErr = "";
 $passwordErr = "";
 $flag=1;
 $userResult="";
-if(isset($_SESSION['email'])){
-    header('location:../blogs.php');
+$error="";
+if(isset($_SESSION['email']) && !empty($_SESSION['email'])){
+    header('location:../View/blogs.php');
 }
 if(isset($_POST['login'])){
     $email=$_POST['email'];
@@ -29,14 +30,15 @@ if(isset($_POST['login'])){
 
     if($flag==1){
         $user = new User($email,$password);
-        $userResult=$user->GetUser();
-        if($userResult=="True")
+        $userResult=$user->GetUserFromDB();
+        if($userResult==null)
         {
-            session_start();
-            $_SESSION['email']=$email;
-            if(!empty($_SESSION['email'])){
-                header('location:../View/todolist.php');
-            }
+            $error="Incorrect Email or Password";
+        }
+        else{
+            $_SESSION['email']=$userResult['email'];
+            $_SESSION['uID']=$userResult['uID'];
+            header('location:../View/todolist.php');
         }
     }
 }

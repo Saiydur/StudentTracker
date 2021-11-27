@@ -1,5 +1,6 @@
 $(document).ready(function () {
     Registration();
+    LoginForm();
 });
 
 function Registration() {

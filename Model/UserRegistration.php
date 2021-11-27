@@ -94,10 +94,10 @@ class UserInfo
         $result = $this->config->ExecuteQuery($sql);
         $flag="";
         if($result->num_rows>0){
-            $flag = true;
+            $flag = false;
         }
         else{
-            $flag=false;
+            $flag=true;
         }
         return $flag;
     }

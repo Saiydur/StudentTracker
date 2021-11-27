@@ -11,13 +11,21 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!------ Include the above in your HEAD tag ---------->
-
+    <script src="../src/script/app.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <title>Login</title>
+
+    <style>
+        #bottom {
+            position: relative;
+            clear: both;
+            margin-top: 180px;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,7 +42,6 @@
                                 <h1>Login</h1>
                             </div>
                         </div>
-
                         <form action="" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
@@ -46,10 +53,10 @@
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="password" name="password" id="password" class="form-control"
                                     aria-describedby="emailHelp" placeholder="Enter Password" value=""><br>
-                                <?php echo"<label class='text-danger'>{$passwordErr}</label>";?>
+                                <?php echo"<label class='text-danger'>{$passwordErr}</label>";?><br>
                             </div>
                             <div class="col-md-12 text-center">
-                                <p class="text-danger"><?php if($userResult!="True"){echo $userResult;}?></p>
+                                <p class="text-danger"><?php if($error!=null){echo $error;}?></p>
                             </div>
                             <div class="form-group">
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
@@ -78,10 +85,6 @@
 
                     </div>
                 </div>
-
-                <div>
-                <?php include('../Global/SimpleFooter.php')?>
-                </div>
                 <!-- bootstrapcdn script -->
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -96,9 +99,10 @@
                     crossorigin="anonymous">
                 </script>
             </div>
-        </div>
+        </div>        
     </div>
-                
+    <div id="bottom">
+    <?php include('../Global/SimpleFooter.php')?>   
+    </div>
 </body>
-
 </html>
