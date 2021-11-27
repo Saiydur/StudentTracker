@@ -102,12 +102,13 @@ if(isset($_POST['register'])){
         $passwordConfirmErr="Password Required";
     }
     else{
-        if(!($password===$passwordConfirm)){
+        if($password!==$passwordConfirm){
             $flag=0;
             $passwordConfirmErr="Password Dont Match";  
         }
     }
 
+    //if all the fields are filled and valid
     if($flag!=0)
     {
         $user = new UserInfo($firstName,$lastName,$email,$contactNo,$password);

@@ -38,7 +38,7 @@ class Config{
     public function ExecuteQuery($sql){
         $conn = $this->getConnection();
         $result = $conn->query($sql);
-        if($result){
+        if($result->num_rows>0){
             $this->closeConnection($conn);
             return $result;
         }else{

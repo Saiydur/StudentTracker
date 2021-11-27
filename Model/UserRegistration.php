@@ -9,6 +9,14 @@ class UserInfo
     private $password;
     private $config;
 
+    /**
+     * UserInfo constructor.
+     * @param $firstName
+     * @param $lastName
+     * @param $email
+     * @param $contactNo
+     * @param $password
+     */
     function __construct($firstName,$lastName,$email,$contactNo,$password)
     {
         $this->firstName=$firstName;
@@ -18,6 +26,7 @@ class UserInfo
         $this->password=$password;
         $this->config=new Config();
     }
+    //getters
     public function GetFirstName()
     {
         return $this->firstName;
@@ -38,6 +47,9 @@ class UserInfo
     {
         return $this->contactNo;
     }
+    /**
+     * @return mixed;
+     */
     public function GetFullName()
     {
         return $this->firstName." ".$this->lastName;
@@ -45,8 +57,9 @@ class UserInfo
 
     public function InsertDataToJSON()
     {
-        if(file_exists('../src/Files/UserInfo.json')){
-            $currentData = file_get_contents('../src/Files/UserInfo.json');
+        $filedict = '../src/Files/UserInfo.json';
+        if(file_exists($filedict)){
+            $currentData = file_get_contents($filedict);
             $arrayData = json_decode($currentData,true);
             $newData = array(
                 'firstName'=>$this->GetFirstName(),
@@ -69,30 +82,52 @@ class UserInfo
         }
     }
     
+    /**
+     * @return bool
+     * Check Email Exist or Not
+     * If Email Exist then return false
+     * If Email Not Exist then return true
+     */
     public function CheckEmailExist()
     {
         $sql = "SELECT * FROM userinfo WHERE email = '$this->email'";
         $result = $this->config->ExecuteQuery($sql);
+        $flag="";
         if($result->num_rows>0){
-            return false;
+            $flag = true;
         }
         else{
-            return true;
+            $flag=false;
         }
+        return $flag;
     }
+
+    /**
+     * 
+     * @return int
+     * Generate Unique Id
+     * if table row = 0 then return 1
+     * if table row > 0 then return last row id + 1
+     */
     public function GenerateUniqueId()
     {
         $sql = "SELECT uID from userinfo ORDER BY uID desc LIMIT 0,1";
         $result = $this->config->ExecuteQuery($sql);
+        $id=0;
         if($result->num_rows>0){
             $row = $result->fetch_assoc();
             $id = $row['uID']+1;
-            return $id;
         }
         else{
-            return 1;
+            $id=1;
         }
+        return $id;
     }
+
+    /**
+     * @return String as Result
+     * Insert Data to Database
+     */
     public function InsertDataToDB()
     {
         if($this->CheckEmailExist()){

@@ -50,7 +50,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
+                                <em class="fa fa-user text-muted"></em>
                             </span>
                         </div> 
                         <input value="<?php echo $firstName?>" id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
@@ -60,7 +60,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-user text-muted"></i>
+                                <em class="fa fa-user text-muted"></em>
                             </span>
                         </div>
                         <input value="<?php echo $lastName?>" id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
@@ -71,7 +71,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-envelope text-muted"></i>
+                                <em class="fa fa-envelope text-muted"></em>
                             </span>
                         </div>
                         <input value="<?php echo $email?>" id="email" type="text" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
@@ -82,7 +82,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-phone-square text-muted"></i>
+                                <em class="fa fa-phone-square text-muted"></em>
                             </span>
                         </div>
                         <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
@@ -96,7 +96,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <em class="fa fa-lock text-muted"></em>
                             </span>
                         </div>
                         <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
@@ -106,7 +106,7 @@
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-lock text-muted"></i>
+                                <em class="fa fa-lock text-muted"></em>
                             </span>
                         </div>
                         <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
@@ -130,11 +130,11 @@
                     <!-- Social Login -->
                     <div class="form-group col-lg-12 mx-auto">
                         <a href="#" class="btn btn-primary btn-block py-2 btn-facebook">
-                            <i class="fa fa-facebook-f mr-2"></i>
+                            <em class="fa fa-facebook-f mr-2"></i>
                             <span class="font-weight-bold">Continue with Facebook</span>
                         </a>
                         <a href="#" class="btn btn-primary btn-block py-2 btn-twitter">
-                            <i class="fa fa-twitter mr-2"></i>
+                            <em class="fa fa-twitter mr-2"></em>
                             <span class="font-weight-bold">Continue with Twitter</span>
                         </a>
                     </div>
