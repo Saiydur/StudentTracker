@@ -91,9 +91,9 @@ class UserInfo
     public function CheckEmailExist()
     {
         $sql = "SELECT * FROM userinfo WHERE email = '$this->email'";
-        $result = $this->config->ExecuteQuery($sql);
         $flag="";
-        if($result->num_rows>0){
+        if($result = $this->config->ExecuteQuery($sql)){
+            $rows = $result->fetch_assoc();
             $flag = false;
         }
         else{
