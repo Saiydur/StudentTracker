@@ -112,16 +112,33 @@ class UserInfo
     public function GenerateUniqueId()
     {
         $sql = "SELECT uID from userinfo ORDER BY uID desc LIMIT 0,1";
-        $result = $this->config->ExecuteQuery($sql);
         $id=0;
-        if($result->num_rows>0){
-            $row = $result->fetch_assoc();
-            $id = $row['uID']+1;
+        if($result = $this->config->ExecuteQuery($sql)){
+            if($result->num_rows>0){
+                $row = $result->fetch_assoc();
+                $id = $row['uID']+1;
+            }
         }
         else{
             $id=1;
         }
         return $id;
+    }
+
+    public function GenerateUserRoleId()
+    {
+        $sql = "SELECT userRoleID from  userrole ORDER BY userRoleID desc LIMIT  0,1";
+        $userRoleID=0;
+        if($result=$this->config->ExecuteQuery($sql)){
+            if($result->num_rows>0){
+                $row = $result->fetch_assoc();
+                $userRoleID = $row['userRoleID']+1;
+            }
+        }
+        else{
+            $userRoleID=1;
+        }
+        return $userRoleID;
     }
 
     /**
@@ -133,9 +150,11 @@ class UserInfo
         if($this->CheckEmailExist()){
             $result = "";
             $id = $this->GenerateUniqueId();
+            $userRoleID = $this->GenerateUserRoleId();
             $sql = "INSERT INTO userinfo(uID,firstName,lastName,email,contactNo,password,fullName) VALUES('$id','$this->firstName','$this->lastName','$this->email','$this->contactNo','$this->password','{$this->GetFullName()}')";
+            $sql2 = "INSERT INTO userrole(userRoleID,userRoleName,userid) VALUES('$userRoleID','student','$id')";
             $result = $this->config->ExecuteUpdateQuery($sql);
-            if($result){
+            if($result && $this->config->ExecuteUpdateQuery($sql2)){
                 $result="Registration Successfully";
             }
             else{
