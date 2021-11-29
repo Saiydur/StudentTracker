@@ -38,6 +38,7 @@ if(isset($_POST['login'])){
         else{
             $_SESSION['email']=$userResult['email'];
             $_SESSION['uID']=$userResult['uID'];
+            $_SESSION['role']=$userResult['userRoleName'];
             header('location:../View/todolist.php');
         }
     }

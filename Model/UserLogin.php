@@ -46,7 +46,7 @@ class User{
 
     public function GetUserFromDB()
     {
-        $sql="SELECT * FROM userinfo WHERE email='$this->email' and password='$this->password'";
+        $sql="SELECT * FROM userlist WHERE email='$this->email' and password='$this->password'";
         if($result=$this->config->ExecuteQuery($sql)){
             $rows=$result->fetch_assoc();
             $result = $rows;
