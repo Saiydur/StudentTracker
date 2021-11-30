@@ -1,5 +1,9 @@
+:root {
+      --green-color: chartreuse;
+}
+
 #marks-css {
-      color: chartreuse;
+      color: var(--green-color);
 }
 
 #form-row-div {
