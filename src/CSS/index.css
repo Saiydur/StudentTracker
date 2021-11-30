@@ -1,5 +1,9 @@
+:root {
+    --orange-color: orange;
+}
+
 .carousel-indicators .active{
-    background-color: orange;
+    background-color: var(--orange-color);
 }
 .carousel-control-next-icon, .carousel-control-prev-icon{
     height: 40px;

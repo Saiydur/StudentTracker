@@ -1,21 +1,28 @@
+:root {
+    --facebook-color: #405D9D;
+    --facebook-color-hover: #314879;
+    --twitter-color: #42AEEC;
+    --twitter-color-hover: #1799E4;
+}
+
 .border-md {
     border-width: 2px;
 }
 
 .btn-facebook {
-    background: #405D9D;
+    background: var(--facebook-color);
     border: none;
 }
 
 .btn-facebook:hover, .btn-facebook:focus {
-    background: #314879;
+    background: var(--facebook-color-hover);
 }
 
 .btn-twitter {
-    background: #42AEEC;
+    background: var(--twitter-color);
     border: none;
 }
 
 .btn-twitter:hover, .btn-twitter:focus {
-    background: #1799e4;
+    background: var(--twitter-color-hover);
 }
