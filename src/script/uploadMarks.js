@@ -1,7 +1,6 @@
 function courseNameCGPA() {
       let inputNumber = document.getElementById('marks-course-number-input').value;
 
-
       if (inputNumber > 10 || inputNumber < 0) {
             alert('Course number can\'t be less than 0 or greater than 10');
       }   
@@ -91,4 +90,3 @@ function courseNameCGPA() {
             document.getElementById('container').appendChild(buttonDiv);
       }
 }
-

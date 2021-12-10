@@ -14,12 +14,20 @@
     <title>Friend List</title>
 </head>
 <body>
-<?php
-include '../Controller/friendsAction.php';
-include '../Global/Header.php';
-include '../Global/UserHeader.php';
-$frnds = new friendsAction();
-$frnds->ShowAllFriends();
+<?php include('../Global/Header.php');
 ?>
+        <div class="bg-light" id="container">
+            <?php include('../Global/UserHeader.php'); ?>
+            <div class="col-md-9 col-lg-10 pl-0 pr-0">
+                <div class="jumbotron jumbotron-fluid bg-light mb-0">
+                <?php
+                    include '../Controller/friendsAction.php';
+                    $frnds = new friendsAction();
+                    $frnds->ShowAllFriends();
+                ?>
+                </div>
+            </div>
+        </div>
+        <script src='../src/script/uploadMarks.js'></script>~
 </body>
 </html>

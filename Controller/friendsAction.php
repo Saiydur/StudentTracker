@@ -9,7 +9,6 @@ class friendsAction{
 
     public function ShowAllFriends(){
         $data=$this->getFriends();
-        echo "<div class='container'>";
         echo "<table class='table table-dark'>";
         echo "<thead>";
         echo "<tr>";
@@ -32,7 +31,6 @@ class friendsAction{
         }
         echo "</tbody>";
         echo "</table>";
-        echo "</div>";
     }
 
     public function getFriends(){
