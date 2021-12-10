@@ -50,8 +50,7 @@ class Config{
 
     public function ExecuteUpdateQuery($sql){
         $conn = $this->getConnection();
-        $result = $conn->query($sql);
-        if($result){
+        if($conn->query($sql)){
             $this->closeConnection($conn);
             return true;
         }

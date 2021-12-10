@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="../index.php">Student Tracker</a>
@@ -19,7 +20,7 @@
                     </li>
                 </ul>
                 <div class="mx-4">
-                <?php session_start(); if(!empty($_SESSION['email'])){
+                <?php if(!empty($_SESSION['email'])){
                     echo '<a class="btn btn-outline-info my-2 my-sm-0 mr-2 " href="../View/todolist.php">To Do List</a>';
                         echo '<a class="btn btn-outline-info my-2 my-sm-0 " href="../Controller/LogOut.php">Logout</a>';
 

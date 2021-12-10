@@ -1,3 +1,21 @@
+<?php 
+include "../Controller/friendsAction.php";
+$userFirstName="";
+$userLastName="";
+$useremail="";
+$userPhone="";
+$userRole="";
+$userAction = new friendsAction();
+$userId=$_GET["userEmail"];
+$userDetails=$userAction->getSingleFriends($userId);
+foreach ($userDetails as $userDetail) {
+    $userFirstName=$userDetail["firstName"];
+    $userLastName=$userDetail["lastName"];
+    $useremail=$userDetail["email"];
+    $userPhone=$userDetail["contactNo"];
+    $userRole=$userDetail["userRoleName"];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +33,7 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Blog-Write</title>
+    <title>User Full Details</title>
 </head>
 <body>
 <?php include('../Global/Header.php');?>
@@ -24,9 +42,70 @@
         <?php include('../Controller/PostBlogAction.php')?>
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
-                <h1><?php echo $_GET["userEmail"]?></h1>
+                <h1 class="display-4 text-center">User Details</h1>
+                <div class="container">
+                    <form action="" method="post">
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>First Name</h6>
+                                <input type="text" name="fn" class="w-100" value="<?php echo $userFirstName?>">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Last Name</h6>
+                                <input type="text" name="ln" class="w-100" value="<?php echo $userLastName?>">
+                            </div>
+                        </div>
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Email</h6>
+                                <input type="text" name="email" class="w-100" value="<?php echo $useremail?>">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Contact Number</h6>
+                                <input type="text" name="cn" class="w-100" value="<?php echo $userPhone?>">
+                            </div>  
+                        </div>
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Status</h6>
+                                <input type="text" name="status" class="w-100" value="Activate">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Role</h6>
+                                <input type="text" name="role" value="<?php echo $userRole?>">
+                            </div>  
+                        </div>  
+                        <div class="text-center row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <button id="deleteBtn" name="deleteBtn" class="btn btn-danger w-25">Delete</button>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <button id="btnEdit" name="editBtn" class="btn btn-success w-25">Edit</button>
+                            </div>  
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    <?php 
+    if(isset($_POST['deleteBtn'])){
+        if($userAction->deleteUser($userId)){
+            echo "<script>alert('User Deleted Successfully');</script>";
+            echo "<script>window.location.href='../View/friends.php';</script>";
+        }
+    }
+    if(isset($_POST['editBtn'])){
+        $fn = $_POST['fn'];
+        $ln = $_POST['ln'];
+        $email = $_POST['email'];
+        $cn = $_POST['cn'];
+        $status = $_POST['status'];
+        $role = $_POST['role'];
+        if($userAction->UpdateInfo($fn,$ln,$email,$cn,$role,$userId)){
+            echo "<script>window.location.href='../View/friends.php';</script>";
+        }
+    }
+    ?>
 </body>
 </html>

@@ -13,7 +13,8 @@ class friendsAction{
             echo "<table class='table table-dark'>";
             echo "<thead>";
             echo "<tr>";
-            echo "<th scope='col'>Full Name</th>";
+            echo "<th scope='col'>First Name</th>";
+            echo "<th scope='col'>Last Name</th>";
             echo "<th scope='col'>Contact Number</th>";
             echo "<th scope='col'>Email</th>";
             echo "<th scope='col'>Role</th>";
@@ -23,7 +24,8 @@ class friendsAction{
             echo "<tbody>";
             foreach($data as $row){
                 echo "<tr>";
-                echo "<td>".$row['fullName']."</td>";
+                echo "<td>".$row['firstName']."</td>";
+                echo "<td>".$row['lastName']."</td>";
                 echo "<td>".$row['contactNo']."</td>";
                 echo "<td>".$row['email']."</td>";
                 echo "<td>".$row['userRoleName']."</td>";
@@ -47,6 +49,48 @@ class friendsAction{
                 $data[] = $row;
             }
             return $data;
+        }
+    }
+    public function getSingleFriends($param){
+        $sql = "SELECT * FROM userlist WHERE email='$param'";
+        if($result = $this->config->ExecuteQuery($sql)){
+            $data = array();
+            while($row = $result->fetch_assoc()){
+                $data[] = $row;
+            }
+            return $data;
+        }
+    }
+
+    public function UpdateInfo($fn,$ln,$email,$cn,$role,$prevEmail){
+        $fullName = $fn." ".$ln;
+        $sql = "UPDATE `userinfo` SET `firstName`='$fn',`lastName`='$ln',`contactNo`='$cn',`email`='$email', `fullName`='$fullName' WHERE `email`='$prevEmail';";
+        if($this->config->ExecuteUpdateQuery($sql) ){
+           $sqlrole="UPDATE `userrole` SET `userRoleName`='$role' WHERE `userid`=(SELECT uID from `userinfo` where email='$prevEmail');";
+              if($this->config->ExecuteUpdateQuery($sqlrole)){
+                return true;
+              }
+              else{
+                return false;
+              }
+        }
+        else{
+            return false;
+        }
+    }
+    public function DeleteUser($userId){
+        $sql = "DELETE FROM `userrole` WHERE userid=(SELECT uID FROM userinfo WHERE email='$userId');";
+        if($this->config->ExecuteUpdateQuery($sql)){
+            $sql2="DELETE FROM `userinfo` WHERE email='$userId';";
+            if($this->config->ExecuteUpdateQuery($sql2)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
         }
     }
 }

@@ -19,7 +19,7 @@
                     </li>
                     <?php if($_SESSION['role'] == 'admin'){
                     echo "<li class='nav-item'>
-                        <a class='nav-link' href='./friends.php'><i class='fa fa-user-plus' aria-hidden='true'></i> See Friends</a>
+                        <a class='nav-link' href='./friends.php'><i class='fa fa-user-plus' aria-hidden='true'></i> See Users</a>
                     </li>";
                     }
                     ?>

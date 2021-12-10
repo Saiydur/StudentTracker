@@ -20,11 +20,13 @@
             <?php include('../Global/UserHeader.php'); ?>
             <div class="col-md-9 col-lg-10 pl-0 pr-0">
                 <div class="jumbotron jumbotron-fluid bg-light mb-0 ">
+                <div class="container">
                 <?php
                     include '../Controller/friendsAction.php';
                     $frnds = new friendsAction();
                     $frnds->ShowAllFriends();
                 ?>
+                </div>
                 </div>
             </div>
         </div>

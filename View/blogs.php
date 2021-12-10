@@ -18,22 +18,5 @@
 <body>
     <?php include('../Global/Header.php')?>
     <!-- Heading Section End Here -->
-    <h1 class="container py-4"><?php
-    if(isset($_SESSION['email'])){
-    $jsonData = file_get_contents('../src/Files/UserBlogs.json');
-    $parseData = json_decode($jsonData,true);
-    foreach($parseData as $data)
-    {
-        echo "Title:".$data['title']."<br>";
-        echo $data['post']."<br>";
-        echo "Tags:".$data['tags'][0]."<br>";
-        echo "Created by:".$data['by']."<br>";
-    }
-    }
-    else{
-        echo "No Data Found";
-    }
-    ?>
-    </h1>
 </body>
 </html>
