@@ -37,10 +37,11 @@ class Config{
 
     public function ExecuteQuery($sql){
         $conn = $this->getConnection();
-        $result = $conn->query($sql);
-        if($result->num_rows>0){
-            $this->closeConnection($conn);
-            return $result;
+        if($result = $conn->query($sql)){
+            if($result->num_rows > 0){
+                $this->closeConnection($conn);
+                return $result;
+            }
         }else{
             $this->closeConnection($conn);
             return false;

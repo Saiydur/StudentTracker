@@ -1,8 +1,12 @@
-#marks-css {
-      color: chartreuse;
+:root {
+      --green-color: chartreuse;
 }
 
-#form-row-div {
+#marks-css {
+      color: var(--green-color);
+}
+
+#form-row-div, #submit-button  {
       display: flex;
       justify-content: center;
 }

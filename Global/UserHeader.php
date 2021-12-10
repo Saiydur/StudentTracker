@@ -17,6 +17,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./postBlog.php"><i class="fa fa-book" aria-hidden="true"></i> Post Blog</a>
                     </li>
+                    <?php if($_SESSION['role'] == 'admin'){
+                    echo "<li class='nav-item'>
+                        <a class='nav-link' href='./friends.php'><i class='fa fa-user-plus' aria-hidden='true'></i> See Friends</a>
+                    </li>";
+                    }
+                    ?>
                 </ul>
             </div>
 </div>
