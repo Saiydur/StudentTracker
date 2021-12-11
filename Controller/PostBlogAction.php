@@ -65,15 +65,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
 
         if($flag==1){
-            $blog = new BlogPost($postTitle,$strToCatArray,$blogText,$strToCatArray,$userEmail);
-            $blogPost=$blog->InsertBlog();
-            if($blogPost)
-            {
-                $result="Posted successfully by ".$userEmail;
-            }
-            else{
-                $result="Error To Post";
-            }
+            //make date
+            $postDate=date('Y-m-d');
+            $postTime=date('H:i:s');
+            $postDateTime=$postDate." ".$postTime;
+            $blog = new BlogPost($postTitle,$strToCatArray,$blogText,$strToCatArray,$userEmail,$postDateTime);
+            $blogPost=$blog->InsertBlogToDB();
+            $result="<script>alert($blogPost);</script>";
         }
     }
 }

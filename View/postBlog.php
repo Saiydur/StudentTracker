@@ -25,8 +25,8 @@
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
+                <?php echo $result?>
                 <h1>Share Your Mind:</h1><hr>
-                <h3><?php echo $result?></h3>
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-md-12">
