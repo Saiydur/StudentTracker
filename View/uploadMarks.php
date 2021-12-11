@@ -37,7 +37,7 @@
 <br>
                             <input type="text" class="form-control" id="marks-course-number-input" placeholder="CGPA" aria-label="CGPA" aria-describedby="basic-addon2" name='cgpa'>
 <br>
-                            <input id="addBtn" class="btn btn-info w-100" type="submit" value="Upload" name="Upload">
+                            <input id="addBtn" class="btn btn-info w-100 mb-5" type="submit" value="Upload" name="Upload">
 <br>
                         </form>
                         <div style="display: none;" id="tableData">
@@ -88,8 +88,8 @@
             // reset table data
             $("#tableData").html('');
             $.ajax({
-                url: '../Controller/TodoListAddController.php?case=get',
-                method: 'POST',
+                url: '../Controller/uploadMarksAction.php?case=get',
+                method: 'GET',
                 dataType: 'json',
                 success:function(data){
                     //console.log(data);

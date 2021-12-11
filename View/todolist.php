@@ -70,7 +70,7 @@
             $("#tableData").html('');
             $.ajax({
                 url: '../Controller/TodoListAddController.php?case=get',
-                method: 'POST',
+                method: 'GET',
                 dataType: 'json',
                 success:function(data){
                     //console.log(data);

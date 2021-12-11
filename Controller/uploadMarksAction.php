@@ -49,4 +49,17 @@ if($case=='delete'){
       {
           echo "Task Not Deleted";
       } 
+}
+if($case=='get'){
+      $sql = "SELECT * FROM uploadmarks WHERE userId=(SELECT uID FROM userinfo WHERE email='$useremail')";
+          if($result = $conn->ExecuteQuery($sql)){
+              $rows = array();
+              while($row = mysqli_fetch_assoc($result)){
+                  $rows[] = $row;
+              }
+              echo json_encode($rows);
+          }
+          else{
+              echo "No Task Found";
+          }
   }
