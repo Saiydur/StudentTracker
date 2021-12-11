@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../src/CSS/marks.css">
 </head>
 <body>
+
 <?php include('../Global/Header.php');
 ?>
         <div class="bg-light" id="container">
@@ -25,26 +26,116 @@
             <div class="col-md-9 col-lg-10 pl-0 pr-0">
                 <div class="jumbotron jumbotron-fluid bg-light mb-0">
                     <div class="container">
-                    <h1>Track Your Marks</h1>
-                    <!--  Write Your Code From Here -->
-                    <div class="form-group mb-3 marks-institution-div">
-                            <input type="text" class="form-control marks-institution-name-input" placeholder="Institution name" aria-label="Institution Name" aria-describedby="basic-addon2">
-                        </div>
+                        <h1>Track Your Marks</h1>
+                        <!--  Write Your Code From Here -->
+                        <form action="" method="post">
+                            <input type="text" class="form-control marks-institution-name-input" id="institution-name" placeholder="Institution name" aria-label="Institution Name" aria-describedby="basic-addon2" name="institution-name">
+<br>
+                            <input type="text" class="form-control marks-semester-name-input" placeholder="Semester name" aria-label="Semester Name" aria-describedby="basic-addon2" name="semester-name">
+<br>
+                            <input type="text" class="form-control" id="marks-course-number-input" placeholder="Course Name" aria-label="Course Name" aria-describedby="basic-addon2" name='course-name'>
+<br>
+                            <input type="text" class="form-control" id="marks-course-number-input" placeholder="CGPA" aria-label="CGPA" aria-describedby="basic-addon2" name='cgpa'>
+<br>
+                            <input id="addBtn" class="btn btn-info w-100" type="submit" value="Upload" name="Upload">
+<br>
+                        </form>
+                        <div style="display: none;" id="tableData">
 
-                        <div class="form-group mb-3 marks-semester-div">
-                            <input type="text" class="form-control marks-semester-name-input" placeholder="Semester name" aria-label="Semester Name" aria-describedby="basic-addon2">
-                        </div>
-
-                        <div class="input-group form-group mb-3 marks-course-number-div">
-                            <input type="number" class="form-control" id="marks-course-number-input" placeholder="How much courses did you take? (Enter a Number)" aria-label="Course Number" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-info" type="button" id='submit-course-number' onclick="courseNameCGPA()">Submit</button>
-                            </div>
-                        </div>  
-                    </div>
+                        </div>   
+                    </div> 
                 </div>
             </div>
         </div>
-        <script src='../src/script/uploadMarks.js'></script>
+
+    <script>
+        $(document).ready(function() {
+            LoadData();
+            $("#addBtn").click(function(e) {
+                e.preventDefault();
+                var institutionName = $("input[name='institution-name']").val();
+                var semesterName = $("input[name='semester-name']").val();
+                var courseName = $("input[name='course-name']").val();
+                var cgpa = $("input[name='cgpa']").val();
+                var email = "<?php echo $_SESSION['email'];?>";
+                if(institutionName == '' || semesterName == '' || courseName == '' || cgpa == '') 
+                {
+                    alert("Please fill all the fields");
+                }
+                else
+                {
+                    let mydata = {
+                        institutionName: institutionName,
+                        semesterName: semesterName,
+                        courseName: courseName,
+                        cgpa: cgpa,
+                        email: email
+                    }
+                    $.ajax({
+                        url: '../Controller/uploadMarksAction.php?case=add',
+                        method: 'POST',
+                        data: JSON.stringify(mydata),
+                        success: function(data) {
+                            alert(data);
+                            LoadData();
+                        }
+                    });
+                }
+            });
+        });
+
+        function LoadData(){
+            // reset table data
+            $("#tableData").html('');
+            $.ajax({
+                url: '../Controller/TodoListAddController.php?case=get',
+                method: 'POST',
+                dataType: 'json',
+                success:function(data){
+                    //console.log(data);
+                    if(data){
+                        x= data;
+                    }
+                    else{
+                        $("#tableData").css("display","none");
+                        x = "";
+                    }
+                    for(i=0;i<x.length;i++){
+                        $("#tableData").css("display","block");
+                        $("#tableData").append(`<div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Institution Name: <span id="institutionName">${x[i].institution_name}</span></h5>
+                                <h5 class="card-title">Semester Name: <span id="semesterName">${x[i].semester_name}</span></h5>
+                                <h5 class="card-title">Course Name: <span id="courseName">${x[i].course_name}</span></h5>
+                                <h5 class="card-title">CGPA: <span id="cgpa">${x[i].cgpa}</span></h5>
+                                <span style="display:none;" id="marksId">${x[i].marksId}</span>
+                                <button class="btn btn-danger delBtn">Delete</button>
+                            </div>
+                        </div>`);
+                    }
+                }
+            });
+        }
+
+        $(document).on('click','.delBtn',function(){
+            let r=confirm("Are You Sure You Want To Delete This Task?");
+            if(r==true){
+                let marksId = $(this).parent().find("#marksId").text();
+                //console.log(taskId);
+                    let mydata = {
+                        marksId: marksId,
+                    }
+                    $.ajax({
+                        url: '../Controller/uploadMarksAction.php?case=delete',
+                        method: 'POST',
+                        data: JSON.stringify(mydata),
+                        success: function(data) {
+                            alert(data);
+                            LoadData();
+                        }
+                    });
+            }
+        });
+    </script>
 </body>
 </html>
