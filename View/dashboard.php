@@ -20,10 +20,81 @@
 <?php include('../Global/Header.php');
 include('../Global/UserHeader.php');
 ?>
+<?php 
+include "../Controller/friendsAction.php";
+$userFirstName="";
+$userLastName="";
+$useremail="";
+$userPhone="";
+$userRole="";
+$userId=$_SESSION['email'];
+$userAction = new friendsAction();
+$userDetails=$userAction->getSingleFriends($userId);
+foreach ($userDetails as $userDetail) {
+    $userFirstName=$userDetail["firstName"];
+    $userLastName=$userDetail["lastName"];
+    $useremail=$userDetail["email"];
+    $userPhone=$userDetail["contactNo"];
+    $userRole=$userDetail["userRoleName"];
+}
+?>
         <div class="col-md-9 col-lg-10 pl-0 pr-0">
             <div class="jumbotron jumbotron-fluid bg-light mb-0">
                 <div class="container">
                    <!--  Write Your Code From Here -->
+                   <form action="" method="post">
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>First Name</h6>
+                                <input type="text" name="fn" class="w-100" value="<?php echo $userFirstName?>">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Last Name</h6>
+                                <input type="text" name="ln" class="w-100" value="<?php echo $userLastName?>">
+                            </div>
+                        </div>
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Email</h6>
+                                <input type="text" name="email" class="w-100" value="<?php echo $useremail?>">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Contact Number</h6>
+                                <input type="text" name="cn" class="w-100" value="<?php echo $userPhone?>">
+                            </div>  
+                        </div>
+                        <div class="container row p-4">
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Status</h6>
+                                <input type="text" name="status" class="w-100" value="Activate">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h6>Role</h6>
+                                <input type="text" name="role" value="<?php echo $userRole?>">
+                            </div>  
+                        </div>  
+                        <div class="text-center row p-4">
+                            <div class="col-md-12 col-sm-12">
+                                <button id="btnEdit" name="editBtn" class="btn btn-success w-25">Update</button>
+                            </div>  
+                        </div>
+                    </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <?php 
+    if(isset($_POST['editBtn'])){
+        $fn = $_POST['fn'];
+        $ln = $_POST['ln'];
+        $email = $_POST['email'];
+        $cn = $_POST['cn'];
+        $status = $_POST['status'];
+        $role = $_POST['role'];
+        if($userAction->UpdateInfo($fn,$ln,$email,$cn,$role,$userId)){
+            echo "<script>window.location.href='../View/dashboard.php';</script>";
+        }
+    }
+    ?>
 </body>
 </html>
