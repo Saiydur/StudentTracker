@@ -110,7 +110,6 @@
                     method: 'POST',
                     data: JSON.stringify(mydata),
                     success: function(data) {
-                        alert(data);
                         LoadData();
                     }
                 });
@@ -129,7 +128,6 @@
                         method: 'POST',
                         data: JSON.stringify(mydata),
                         success: function(data) {
-                            alert(data);
                             LoadData();
                         }
                     });
