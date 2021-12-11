@@ -27,29 +27,35 @@
                 <div class="jumbotron jumbotron-fluid bg-light mb-0">
                     <div class="container">
                         <div class="container">
+                                <?php 
+                                    if(isset($_GET['upload'])){
+                                        if($_GET["upload"]=="error"){
+                                            echo"<div class='alert alert-danger' role='alert'>
+                                            Upload Failed!
+                                          </div>";
+                                        }
+                                        else if($_GET["upload"]=="success"){
+                                            echo"<div class='alert alert-success' role='alert'>
+                                            Upload Successfully
+                                          </div>";
+                                        }
+                                    }
+                                ?>
                             <h1>Upload Notes and Files from One Place</h1>
                             <!--  Write Your Code From Here -->
                             <!-- <form action="" method="post"> -->
-                                <?php 
-                                    if(isset($error)) {
-                                        echo $error;
-                                    }
-                                ?>
-                                <div class="form-group mb-3 note-file-title-div">
-                                        <input type="text" class="form-control note-file-title-input" placeholder="Note/File Title" aria-label="Note/File Title" aria-describedby="basic-addon2" name='title'>
-                                </div>
-
-                                <div class="form-group note-file-notes-div">
-                                    <textarea class="form-control note-file-notes-input" id="exampleFormControlTextarea1" rows="3" placeholder="Take Notes..." name='textarea'></textarea>
-                                </div>
-
                                 <div class="form-group note-file-files-div">
                                     <form action="uploadFile.php" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group mb-3 note-file-title-div">
+                                        <input type="text" class="form-control note-file-title-input" placeholder="Note/File Title" aria-label="Note/File Title" aria-describedby="basic-addon2" name='title'>
+                                        </div>
+                                        <div class="form-group note-file-notes-div">
+                                            <textarea class="form-control note-file-notes-input" id="exampleFormControlTextarea1" rows="3" placeholder="Take Notes..." name='textarea'></textarea>
+                                        </div>
                                         <input type="file" class="form-control-file note-file-files-input" id="exampleFormControlFile" name='file'><br>
                                         <button class="btn btn-outline-primary" type="submit" name='submit'>Upload</button>
                                     </form>
                                 </div>
-
                                 <?php 
                                     if(isset($message)) {
                                         echo $message;
