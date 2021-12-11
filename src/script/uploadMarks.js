@@ -1,76 +1,78 @@
 function courseNameCGPA() {
-      let inputNumber = document.getElementById('marks-course-number-input').value;
+      var inputNumber = document.getElementById('marks-course-number-input').value;
 
-      if (inputNumber > 10 || inputNumber < 0) {
-            alert('Course number can\'t be less than 0 or greater than 10');
+      if (inputNumber > 7) {
+            alert('Course number can\'t be greater than 7');
       }   
-            else {
-                  for (let i = 0; i < inputNumber; i++) {
-                        var wholeForm = document.createElement('div');
-                        wholeForm.setAttribute('id', 'marks-css');
+      else if (inputNumber < 1) {
+            alert('Course number can\'t be less than 1');
+      }
+      else {
+            for (var i = 0; i < inputNumber; i++) {
+                  var wholeForm = document.createElement('div');
+                  wholeForm.setAttribute('id', 'marks-css');
 
                         
-                        wholeForm.setAttribute('style', 'margin:20px;');
+                  wholeForm.setAttribute('style', 'margin:20px;');
 
 
-                        var form = document.createElement('form');
-                        form.setAttribute('method', 'post');
-                        form.setAttribute('class', 'needs-validation');
+                  var form = document.createElement('form');
+                  form.setAttribute('method', 'post');
+                  form.setAttribute('class', 'needs-validation');
          
                         
-                        var formRowDiv = document.createElement('div');
-                        formRowDiv.setAttribute('class', 'form-row');
-                        formRowDiv.setAttribute('id', 'form-row-div');
+                  var formRowDiv = document.createElement('div');
+                  formRowDiv.setAttribute('class', 'form-row');
+                  formRowDiv.setAttribute('id', 'form-row-div');
    
                         
-                        var courseNameDiv = document.createElement('div');
-                        courseNameDiv.setAttribute('class', 'col-md-4');
-                        courseNameDiv.setAttribute('class', 'mb-3');
-                        courseNameDiv.setAttribute('class', 'course-name-div');
-                        courseNameDiv.setAttribute('style', 'margin:5px;');
+                  var courseNameDiv = document.createElement('div');
+                  courseNameDiv.setAttribute('class', 'col-md-4');
+                  courseNameDiv.setAttribute('class', 'mb-3');
+                  courseNameDiv.setAttribute('class', 'course-name-div');
+                  courseNameDiv.setAttribute('style', 'margin:5px;');
                         
       
-                        var courseNameInput = document.createElement('input');
-                        courseNameInput.setAttribute('type', 'text');
-                        courseNameInput.setAttribute('class', 'form-control');
-                        courseNameInput.setAttribute('id', 'validationCustom01');
-                        courseNameInput.setAttribute('name', 'Course Name');
-                        courseNameInput.setAttribute('placeholder', 'Enter Course Name');
-                        courseNameInput.setAttribute('style', 'padding:10px;');
-                        courseNameInput.required = true;
+                  var courseNameInput = document.createElement('input');
+                  courseNameInput.setAttribute('type', 'text');
+                  courseNameInput.setAttribute('class', 'form-control');
+                  courseNameInput.setAttribute('id', 'validationCustom01');
+                  courseNameInput.setAttribute('name', 'Course Name');
+                  courseNameInput.setAttribute('placeholder', 'Enter Course Name');
+                  courseNameInput.setAttribute('style', 'padding:10px;');
+                  courseNameInput.required = true;
 
                         
-                        var cgpaDiv = document.createElement('div');
-                        cgpaDiv.setAttribute('class', 'col-md-4');
-                        cgpaDiv.setAttribute('class', 'mb-3');
-                        cgpaDiv.setAttribute('class', 'cgpa-div');
-                        cgpaDiv.setAttribute('style', 'margin:5px;');
+                  var cgpaDiv = document.createElement('div');
+                  cgpaDiv.setAttribute('class', 'col-md-4');
+                  cgpaDiv.setAttribute('class', 'mb-3');
+                  cgpaDiv.setAttribute('class', 'cgpa-div');
+                  cgpaDiv.setAttribute('style', 'margin:5px;');
       
-                        var cgpaInput = document.createElement('input');
-                        cgpaInput.setAttribute('type', 'number');
-                        cgpaInput.setAttribute('class', 'form-control');
-                        cgpaInput.setAttribute('id', 'validationCustom02');
-                        cgpaInput.setAttribute('name', 'CGPA');
-                        cgpaInput.setAttribute('placeholder', 'Enter CGPA');
-                        cgpaInput.setAttribute('style', 'padding:10px;');
-                        cgpaInput.required = true;
+                  var cgpaInput = document.createElement('input');
+                  cgpaInput.setAttribute('type', 'number');
+                  cgpaInput.setAttribute('class', 'form-control');
+                  cgpaInput.setAttribute('id', 'validationCustom02');
+                  cgpaInput.setAttribute('name', 'CGPA');
+                  cgpaInput.setAttribute('placeholder', 'Enter CGPA');
+                  cgpaInput.setAttribute('style', 'padding:10px;');
+                  cgpaInput.required = true;
       
       
-                        courseNameDiv.appendChild(courseNameInput);
+                  courseNameDiv.appendChild(courseNameInput);
                   
-                  
-                        cgpaDiv.appendChild(cgpaInput);
+                  cgpaDiv.appendChild(cgpaInput);
       
       
-                        formRowDiv.appendChild(courseNameDiv);
-                        formRowDiv.appendChild(cgpaDiv);
+                  formRowDiv.appendChild(courseNameDiv);
+                  formRowDiv.appendChild(cgpaDiv);
       
       
-                        form.appendChild(formRowDiv);
+                  form.appendChild(formRowDiv);
 
-                        wholeForm.appendChild(form);
+                  wholeForm.appendChild(form);
       
-                        document.getElementById('container').appendChild(wholeForm);
+                  document.getElementById('container').appendChild(wholeForm);
             }
 
             var buttonDiv = document.createElement('div');
@@ -89,4 +91,8 @@ function courseNameCGPA() {
             buttonDiv.appendChild(submitButton);
             document.getElementById('container').appendChild(buttonDiv);
       }
+}
+
+const courseNumberSubmit = () => {
+      document.getElementById('submit-course-number').style.display = 'none';
 }

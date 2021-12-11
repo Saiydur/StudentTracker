@@ -66,7 +66,7 @@
             });
         });
         function LoadData(){
-            //reset tabledata
+            // reset table data
             $("#tableData").html('');
             $.ajax({
                 url: '../Controller/TodoListAddController.php?case=get',
