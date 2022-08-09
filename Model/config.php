@@ -2,7 +2,7 @@
 class Config{
     private static $host = "localhost";
     private static $user = "root";
-    private static $pass = "";
+    private static $pass = "root";
     private static $db = "studenttracker";
 
     public static function getHost(){

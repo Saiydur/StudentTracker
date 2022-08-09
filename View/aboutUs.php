@@ -14,12 +14,19 @@
       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
       <title>About Us</title>
 </head>
+<style>
+            #plasticman{
+                background-image: url("../src/Images/Alpha Alliance (2).png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 100vh;
+            }
+      </style>
 <body>
     <?php include('../Global/Header.php')?>
     <div class="container px-3">
-        <div style="text-align: center;" >
-            <img style="width: 35%; height:auto" src="../src//Images//Alpha Alliance (2).png" alt="">
-        </div>
+        <div id="plasticman"  style="text-align: center;" ></div>
         <div class="row justify-content-center">
             <div class="col-6 container-fluid vh-100" data-aos="fade-right" data-aos-duration="2000">
                 <img style="width: 100%;" src="../src/Images/p11.png" class="rounded float-start" alt="saiydur rahman">
